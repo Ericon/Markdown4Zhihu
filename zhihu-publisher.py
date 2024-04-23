@@ -17,9 +17,9 @@ from shutil import copyfile
 ###############################################################################################################
 ## Please change the GITHUB_REPO_PREFIX value according to your own GitHub user name and relative directory. ##
 ###############################################################################################################
-# GITHUB_REPO_PREFIX = Path("https://raw.githubusercontent.com/`YourUserName`/`YourRepoName`/master/Data/")
+# GITHUB_REPO_PREFIX = Path("https://raw.githubusercontent.com/Ericon/Markdown4Zhihu/master/Data/")
 # Your image folder remote link
-GITHUB_REPO_PREFIX = "https://raw.githubusercontent.com/miracleyoo/Markdown4Zhihu/master/Data/"
+GITHUB_REPO_PREFIX = "https://raw.githubusercontent.com/Ericon/Markdown4Zhihu/master/Data/"
 COMPRESS_THRESHOLD = 5e5 # The threshold of compression
 
 # The main function for this program
@@ -128,13 +128,7 @@ def git_ops():
     subprocess.run(["git","commit","-m", "update file "+args.input.stem])
     subprocess.run(["git","push", "-u", "origin", "master"])
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser('Please input the file path you want to transfer using --input=""')
-    parser.add_argument('--compress', action='store_true', help='Compress the image which is too large')
-    parser.add_argument('-i', '--input', type=str, help='Path to the file you want to transfer.')
-    parser.add_argument('-e', '--encoding', type=str, help='Encoding of the input file')
-
-    args = parser.parse_args()
+def main(args):
     args.used_images = []
     if args.input is None:
         raise FileNotFoundError("Please input the file's path to start!")
@@ -149,3 +143,14 @@ if __name__ == "__main__":
                      
         print(args.image_folder_path)
         process_for_zhihu()
+
+if __name__ == "__main__":
+    print('111111111')
+    parser = argparse.ArgumentParser('Please input the file path you want to transfer using --input=""')
+    parser.add_argument('--compress', action='store_true', help='Compress the image which is too large')
+    parser.add_argument('-i', '--input', type=str, help='Path to the file you want to transfer.')
+    parser.add_argument('-e', '--encoding', type=str, help='Encoding of the input file')
+
+    args = parser.parse_args()
+    main(args=args)
+

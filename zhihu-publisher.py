@@ -145,7 +145,6 @@ def main(args):
         process_for_zhihu()
 
 if __name__ == "__main__":
-    print('111111111')
     parser = argparse.ArgumentParser('Please input the file path you want to transfer using --input=""')
     parser.add_argument('--compress', action='store_true', help='Compress the image which is too large')
     parser.add_argument('-i', '--input', type=str, help='Path to the file you want to transfer.')

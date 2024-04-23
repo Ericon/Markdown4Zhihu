@@ -138,6 +138,8 @@ def main(args):
 
         args.current_script_data_path = str(Path(__file__).absolute().parent / 'Data')
         args.image_folder_path = op.join(args.current_script_data_path, args.input.stem)
+        print('==================')
+        print(args.image_folder_path)
         if not op.exists(args.image_folder_path):
             os.makedirs(args.image_folder_path)
                      
@@ -152,4 +154,3 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     main(args=args)
-
